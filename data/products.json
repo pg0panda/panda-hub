@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "name": "PANDA Keys Manager",
+    "tagline": "إدارة مفاتيح التفعيل من مكان واحد",
+    "description": "أداة سطح مكتب لإدارة مفاتيح التفعيل الخاصة بمنتجاتك، فيها بحث سريع وتصدير واستيراد وربط مباشر بقاعدة البيانات.",
+    "image": "/images/placeholder-1.svg",
+    "downloadUrl": "https://github.com/pg0panda",
+    "version": "v1.4.0",
+    "fileType": "EXE",
+    "sizeMb": 42
+  },
+  {
+    "id": "2",
+    "name": "PANDA Toolbox",
+    "tagline": "مجموعة أدوات ويندوز في تطبيق واحد",
+    "description": "تطبيق بيجمع مجموعة من الأدوات والإصلاحات لأنظمة ويندوز في واجهة واحدة سهلة الاستخدام.",
+    "image": "/images/placeholder-2.svg",
+    "downloadUrl": "https://github.com/pg0panda",
+    "version": "v2.1.3",
+    "fileType": "EXE",
+    "sizeMb": 68
+  },
+  {
+    "id": "3",
+    "name": "فيكسز - سكريبت الصيانة",
+    "tagline": "إصلاح مشاكل ويندوز بضغطة واحدة",
+    "description": "سكريبت PowerShell بيشغل مجموعة إصلاحات وصيانة لويندوز تلقائيًا من غير ما تدور على كل حاجة لوحدها.",
+    "image": "/images/placeholder-3.svg",
+    "downloadUrl": "https://github.com/pg0panda",
+    "version": "v1.0.2",
+    "fileType": "PS1",
+    "sizeMb": 2
+  }
+]

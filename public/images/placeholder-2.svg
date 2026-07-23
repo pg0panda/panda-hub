@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" width="400" height="250">
+  <rect width="400" height="250" fill="#1c1f24"/>
+  <rect x="0" y="0" width="400" height="250" fill="none" stroke="#2c3038" stroke-width="2"/>
+  <circle cx="200" cy="100" r="36" fill="#7fb069" opacity="0.15"/>
+  <circle cx="200" cy="100" r="20" fill="#7fb069" opacity="0.35"/>
+  <text x="200" y="170" font-family="monospace" font-size="16" fill="#8b9198" text-anchor="middle">PANDA PRODUCT 2</text>
+</svg>
