@@ -23,6 +23,31 @@ export default function ProductPage({ product }) {
       <Navbar />
       <div className="container">
         <div className="product-detail">
+          <div className="product-text">
+            <Link href="/" className="back-link">
+              ← كل المنتجات
+            </Link>
+            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", margin: "0 0 12px" }}>
+              {product.name}
+            </h1>
+            {product.tagline && (
+              <p style={{ color: "var(--text-muted)", marginTop: 0 }}>{product.tagline}</p>
+            )}
+            <p>{product.description}</p>
+            <div className="spec-strip" style={{ marginBottom: 20 }}>
+              {product.version} · {product.fileType}
+              {product.sizeMb ? ` · ${product.sizeMb}MB` : ""}
+            </div>
+            <a
+              href={product.downloadUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary"
+            >
+              تحميل المنتج
+            </a>
+          </div>
+
           <div className="product-gallery-column">
             <a
               href={selectedImage}
@@ -49,30 +74,6 @@ export default function ProductPage({ product }) {
                 ))}
               </div>
             )}
-          </div>
-          <div>
-            <Link href="/" className="back-link">
-              ← كل المنتجات
-            </Link>
-            <h1 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", margin: "0 0 12px" }}>
-              {product.name}
-            </h1>
-            {product.tagline && (
-              <p style={{ color: "var(--text-muted)", marginTop: 0 }}>{product.tagline}</p>
-            )}
-            <p>{product.description}</p>
-            <div className="spec-strip" style={{ marginBottom: 20 }}>
-              {product.version} · {product.fileType}
-              {product.sizeMb ? ` · ${product.sizeMb}MB` : ""}
-            </div>
-            <a
-              href={product.downloadUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              تحميل المنتج
-            </a>
           </div>
         </div>
       </div>
