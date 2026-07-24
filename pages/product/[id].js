@@ -15,12 +15,8 @@ export default function ProductPage({ product }) {
     );
   }
 
-  const galleryImages = [
-    product.image,
-    ...(Array.isArray(product.images) ? product.images.filter((image) => image !== product.image) : []),
-  ].filter(Boolean);
-
-  const [selectedImage, setSelectedImage] = useState(galleryImages[0]);
+  const galleryImages = (Array.isArray(product.images) ? product.images : []).filter(Boolean);
+  const [selectedImage, setSelectedImage] = useState(product.image || galleryImages[0]);
 
   return (
     <>
@@ -28,23 +24,31 @@ export default function ProductPage({ product }) {
       <div className="container">
         <div className="product-detail">
           <div className="product-gallery-column">
-            <div className="product-main-image">
+            <a
+              href={selectedImage}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="product-main-image"
+              aria-label={`فتح الصورة الرئيسية للمنتج ${product.name}`}
+            >
               <img src={selectedImage} alt={`${product.name} الرئيسية`} />
-            </div>
+            </a>
 
-            <div className="product-gallery-strip">
-              {galleryImages.map((image, index) => (
-                <button
-                  key={`${product.id}-${index}`}
-                  type="button"
-                  className={`gallery-thumb ${selectedImage === image ? "active" : ""}`}
-                  onClick={() => setSelectedImage(image)}
-                  aria-label={`عرض صورة ${index + 1} للمنتج ${product.name}`}
-                >
-                  <img src={image} alt={`${product.name} ${index + 1}`} />
-                </button>
-              ))}
-            </div>
+            {galleryImages.length > 0 && (
+              <div className="product-gallery-strip">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={`${product.id}-${index}`}
+                    type="button"
+                    className={`gallery-thumb ${selectedImage === image ? "active" : ""}`}
+                    onClick={() => setSelectedImage(image)}
+                    aria-label={`عرض صورة ${index + 1} للمنتج ${product.name}`}
+                  >
+                    <img src={image} alt={`${product.name} ${index + 1}`} />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
           <div>
             <Link href="/" className="back-link">
