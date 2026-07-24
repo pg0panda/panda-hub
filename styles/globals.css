@@ -3,7 +3,7 @@
   --surface: #1c1f24;
   --surface-hover: #23272d;
   --border: #2c3038;
-  --text: #edeff1;
+  --text: #757575;
   --text-muted: #8b9198;
   --bamboo: #7fb069;
   --bamboo-dim: #547a45;
@@ -153,31 +153,53 @@ textarea {
   padding: 48px 0;
 }
 
-.product-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+.product-gallery-column {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
 }
 
-.gallery-link {
-  display: block;
-  border-radius: 12px;
-  overflow: hidden;
+.product-main-image {
   border: 1px solid var(--border);
-  transition: transform 0.15s ease, border-color 0.15s ease;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #12141a;
 }
 
-.gallery-link:hover {
-  transform: translateY(-2px);
-  border-color: var(--bamboo);
+.product-main-image img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
 }
 
-.product-gallery img {
+.product-gallery-strip {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.gallery-thumb {
+  width: 96px;
+  min-width: 96px;
+  padding: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+.gallery-thumb img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   display: block;
-  background: #12141a;
+}
+
+.gallery-thumb.active {
+  border-color: var(--bamboo);
 }
 
 .card {

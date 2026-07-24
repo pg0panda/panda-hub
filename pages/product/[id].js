@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -14,28 +15,36 @@ export default function ProductPage({ product }) {
     );
   }
 
-  const galleryImages = Array.isArray(product.images) && product.images.length > 0
-    ? product.images
-    : [product.image].filter(Boolean);
+  const galleryImages = [
+    product.image,
+    ...(Array.isArray(product.images) ? product.images.filter((image) => image !== product.image) : []),
+  ].filter(Boolean);
+
+  const [selectedImage, setSelectedImage] = useState(galleryImages[0]);
 
   return (
     <>
       <Navbar />
       <div className="container">
         <div className="product-detail">
-          <div className="product-gallery">
-            {galleryImages.map((image, index) => (
-              <a
-                key={`${product.id}-${index}`}
-                href={image}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="gallery-link"
-                aria-label={`فتح صورة ${index + 1} للمنتج ${product.name}`}
-              >
-                <img src={image} alt={`${product.name} ${index + 1}`} />
-              </a>
-            ))}
+          <div className="product-gallery-column">
+            <div className="product-main-image">
+              <img src={selectedImage} alt={`${product.name} الرئيسية`} />
+            </div>
+
+            <div className="product-gallery-strip">
+              {galleryImages.map((image, index) => (
+                <button
+                  key={`${product.id}-${index}`}
+                  type="button"
+                  className={`gallery-thumb ${selectedImage === image ? "active" : ""}`}
+                  onClick={() => setSelectedImage(image)}
+                  aria-label={`عرض صورة ${index + 1} للمنتج ${product.name}`}
+                >
+                  <img src={image} alt={`${product.name} ${index + 1}`} />
+                </button>
+              ))}
+            </div>
           </div>
           <div>
             <Link href="/" className="back-link">
