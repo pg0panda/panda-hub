@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -17,6 +17,49 @@ export default function ProductPage({ product }) {
 
   const galleryImages = (Array.isArray(product.images) ? product.images : []).filter(Boolean);
   const [selectedImage, setSelectedImage] = useState(product.image || galleryImages[0]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (!isModalOpen) return;
+
+      if (event.key === "Escape") {
+        setIsModalOpen(false);
+      }
+
+      if (event.key === "ArrowRight") {
+        const currentIndex = galleryImages.indexOf(selectedImage);
+        const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % galleryImages.length : 0;
+        setSelectedImage(galleryImages[nextIndex]);
+      }
+
+      if (event.key === "ArrowLeft") {
+        const currentIndex = galleryImages.indexOf(selectedImage);
+        const previousIndex = currentIndex > 0 ? currentIndex - 1 : galleryImages.length - 1;
+        setSelectedImage(galleryImages[previousIndex]);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [galleryImages, isModalOpen, selectedImage]);
+
+  const openImage = (image) => {
+    setSelectedImage(image);
+    setIsModalOpen(true);
+  };
+
+  const showPreviousImage = () => {
+    const currentIndex = galleryImages.indexOf(selectedImage);
+    const previousIndex = currentIndex > 0 ? currentIndex - 1 : galleryImages.length - 1;
+    setSelectedImage(galleryImages[previousIndex]);
+  };
+
+  const showNextImage = () => {
+    const currentIndex = galleryImages.indexOf(selectedImage);
+    const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % galleryImages.length : 0;
+    setSelectedImage(galleryImages[nextIndex]);
+  };
 
   return (
     <>
@@ -24,15 +67,14 @@ export default function ProductPage({ product }) {
       <div className="container">
         <div className="product-detail">
           <div className="product-gallery-column">
-            <a
-              href={selectedImage}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               className="product-main-image"
               aria-label={`فتح الصورة الرئيسية للمنتج ${product.name}`}
+              onClick={() => openImage(selectedImage)}
             >
               <img src={selectedImage} alt={`${product.name} الرئيسية`} />
-            </a>
+            </button>
 
             {galleryImages.length > 0 && (
               <div className="product-gallery-strip">
@@ -41,7 +83,10 @@ export default function ProductPage({ product }) {
                     key={`${product.id}-${index}`}
                     type="button"
                     className={`gallery-thumb ${selectedImage === image ? "active" : ""}`}
-                    onClick={() => setSelectedImage(image)}
+                    onClick={() => {
+                      setSelectedImage(image);
+                      setIsModalOpen(false);
+                    }}
                     aria-label={`عرض صورة ${index + 1} للمنتج ${product.name}`}
                   >
                     <img src={image} alt={`${product.name} ${index + 1}`} />
@@ -61,7 +106,7 @@ export default function ProductPage({ product }) {
             {product.tagline && (
               <p style={{ color: "var(--text-muted)", marginTop: 0 }}>{product.tagline}</p>
             )}
-            <p>{product.description}</p>
+            <p className="product-description">{product.description}</p>
             <div className="spec-strip" style={{ marginBottom: 20 }}>
               {product.version} · {product.fileType}
               {product.sizeMb ? ` · ${product.sizeMb}MB` : ""}
@@ -77,6 +122,24 @@ export default function ProductPage({ product }) {
           </div>
         </div>
       </div>
+
+      {isModalOpen && (
+        <div className="image-modal-backdrop" onClick={() => setIsModalOpen(false)}>
+          <div className="image-modal" onClick={(event) => event.stopPropagation()}>
+            <button type="button" className="modal-close" onClick={() => setIsModalOpen(false)}>
+              ×
+            </button>
+            <button type="button" className="modal-arrow left" onClick={showPreviousImage}>
+              ‹
+            </button>
+            <img src={selectedImage} alt={`${product.name} المعروضة`} className="modal-image" />
+            <button type="button" className="modal-arrow right" onClick={showNextImage}>
+              ›
+            </button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );
