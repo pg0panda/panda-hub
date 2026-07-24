@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const repoName = "panda-web";
+const repoName = "panda-hub";
 
 const nextConfig = {
   reactStrictMode: true,
