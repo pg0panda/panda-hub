@@ -9,11 +9,10 @@ export default function Home({ products }) {
       <Navbar />
       <section className="hero">
         <div className="container">
-          <div className="hero-eyebrow">$ panda --list-products</div>
-          <h1>منتجات رقمية جاهزة للتحميل والاستخدام فورًا</h1>
+          <div className="hero-eyebrow">Panda-List-Products</div>
+          <h1> منتجات رقمية لنظام ويندوز</h1>
           <p>
-            أدوات وسكريبتات وتطبيقات لويندوز، مبنية وموثقة بعناية، وكل منتج
-            بييجي بنسخته وحجمه وامتداد الملف واضحين قدامك من غير لف ودوران.
+            منتجات رقمية مصممة لنظام ويندوز، لتسهيل عملية الصيانة واصلاح النظام والتحسين وزيادة الإنتاجية والاداء.
           </p>
         </div>
       </section>

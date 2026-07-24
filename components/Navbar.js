@@ -6,7 +6,7 @@ export default function Navbar() {
       <div className="container navbar-inner">
         <Link href="/" className="brand">
           <span className="brand-dot" />
-          PANDA
+          PANDA HUB
         </Link>
         <nav className="nav-links">
           <Link href="/">المنتجات</Link>
