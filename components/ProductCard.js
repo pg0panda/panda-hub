@@ -1,10 +1,12 @@
 import Link from "next/link";
 
 export default function ProductCard({ product }) {
+  const firstImage = Array.isArray(product.images) ? product.images[0] : product.image;
+
   return (
     <div className="card">
       <div className="card-image">
-        <img src={product.image} alt={product.name} />
+        <img src={firstImage || product.image} alt={product.name} />
       </div>
       <div className="card-body">
         <div className="card-title">{product.name}</div>

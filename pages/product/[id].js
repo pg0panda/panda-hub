@@ -14,12 +14,20 @@ export default function ProductPage({ product }) {
     );
   }
 
+  const galleryImages = Array.isArray(product.images) && product.images.length > 0
+    ? product.images
+    : [product.image].filter(Boolean);
+
   return (
     <>
       <Navbar />
       <div className="container">
         <div className="product-detail">
-          <img src={product.image} alt={product.name} />
+          <div className="product-gallery">
+            {galleryImages.map((image, index) => (
+              <img key={`${product.id}-${index}`} src={image} alt={`${product.name} ${index + 1}`} />
+            ))}
+          </div>
           <div>
             <Link href="/" className="back-link">
               ← كل المنتجات
