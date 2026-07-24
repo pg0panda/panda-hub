@@ -11,6 +11,7 @@ export default function Navbar() {
         <nav className="nav-links">
           <Link href="/">المنتجات</Link>
           <Link href="/about">عن بيئة العمل</Link>
+          <Link href="/contact">تواصل معنا</Link>
         </nav>
       </div>
     </header>
