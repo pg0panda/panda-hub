@@ -4,10 +4,16 @@
     "name": "PANDA Toolbox",
     "tagline": "مجموعة أدوات وبرامج لإصلاح وتحسين أداء ويندوز",
     "description": "برنامج سطح مكتب يحتوي علي جميع تعريفات نظام الويندوز\nيحتوي علي مجموعة برامج بها اشتراك مدي الحياة\nيحتوي علي مجموعة ادوات لاصلاح النظام وحل جميع مشاكله وتسريع اداؤه\nيحتوي علي ادوات تفعيل الويندوز ومايكروسفت والتحكم بتحديثات وحماية ويندوز",
-    "image": "/images/appico.svg",
+    "image": "/images/panda_ico.png",
     "images": [
-      "/images/1.svg",
-      "/images/2.svg"
+      "/images/WhatsApp Image 2026-06-08 at 12.24.51 AM.jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM.jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM (1).jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM (2).jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM.jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (1).jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (2).jpeg",
+      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (3).jpeg"
     ],
     "downloadUrl": "https://github.com/pg0panda/panda-app/releases/download/v5.3.2/Panda-Toolbox-Setup-5.3.2.exe",
     "version": "v5.3.2",

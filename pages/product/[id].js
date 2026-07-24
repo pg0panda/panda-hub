@@ -25,7 +25,16 @@ export default function ProductPage({ product }) {
         <div className="product-detail">
           <div className="product-gallery">
             {galleryImages.map((image, index) => (
-              <img key={`${product.id}-${index}`} src={image} alt={`${product.name} ${index + 1}`} />
+              <a
+                key={`${product.id}-${index}`}
+                href={image}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="gallery-link"
+                aria-label={`فتح صورة ${index + 1} للمنتج ${product.name}`}
+              >
+                <img src={image} alt={`${product.name} ${index + 1}`} />
+              </a>
             ))}
           </div>
           <div>
