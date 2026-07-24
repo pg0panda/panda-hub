@@ -6,31 +6,31 @@ const basePath = process.env.NODE_ENV === "production" ? "/panda-hub" : "";
 const CONTACTS = [
   {
     title: "Discord",
-    icon: `${basePath}/images/platforms/discord.svg`,
+    icon: `${basePath}/images/platforms/discord.png`,
     desc: "تواصل مباشر مع المجتمع والدردشة الفورية.",
     href: "https://canary.discord.com/channels/1411164706885865525/1420494962553913454",
   },
   {
     title: "Telegram",
-    icon: `${basePath}/images/platforms/telegram.svg`,
+    icon: `${basePath}/images/platforms/telegram.png`,
     desc: "للتحديثات والرسائل السريعة.",
     href: "https://t.me/panda_hub7",
   },
   {
     title: "WhatsApp",
-    icon: `${basePath}/images/platforms/whatsapp.svg`,
+    icon: `${basePath}/images/platforms/whatsapp.png`,
     desc: "للمشاريع والاستفسارات السريعة.",
     href: "https://wa.me/201096897507",
   },
   {
     title: "Facebook",
-    icon: `${basePath}/images/platforms/facebook.svg`,
+    icon: `${basePath}/images/platforms/facebook.png`,
     desc: "للاطلاع على آخر التحديثات والمنشورات.",
     href: "https://www.facebook.com/groups/panda.hub",
   },
   {
     title: "YouTube",
-    icon: `${basePath}/images/platforms/youtube.svg`,
+    icon: `${basePath}/images/platforms/youtube.png`,
     desc: "قناة الفيديوهات والشرح التفاعلي.",
     href: "https://www.youtube.com/@PG-panda",
   },
