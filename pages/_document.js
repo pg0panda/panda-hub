@@ -4,6 +4,8 @@ export default function Document() {
   return (
     <Html lang="ar" dir="rtl">
       <Head>
+        <link rel="icon" href="/images/panda-web.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/images/panda-web.ico" type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
