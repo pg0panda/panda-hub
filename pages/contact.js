@@ -3,36 +3,56 @@ import Footer from "../components/Footer";
 
 const basePath = process.env.NODE_ENV === "production" ? "/panda-hub" : "";
 
-const CONTACTS = [
+const SUPPORT_CHANNELS = [
   {
     title: "Discord",
     icon: `${basePath}/images/platforms/discord.png`,
-    desc: "تواصل مباشر مع المجتمع والدردشة الفورية.",
+    desc: "قم بفتح تذكرة للحصول علي مساعدة.",
     href: "https://canary.discord.com/channels/1411164706885865525/1420494962553913454",
   },
+  
   {
+    title: "WhatsApp",
+    icon: `${basePath}/images/platforms/whatsapp.png`,
+    desc: "للمشاريع والاستفسارات.",
+    href: "https://wa.me/201096897507",
+  },
+
+  {
+    title: "Facebook",
+    icon: `${basePath}/images/platforms/facebook.png`,
+    desc: "للتواصل عبر رسائل الصفحة.",
+    href: "https://www.facebook.com/profile.php?id=61592268906943",
+  },
+];
+
+const OUR_PAGES = [
+    {
     title: "Telegram",
     icon: `${basePath}/images/platforms/telegram.png`,
     desc: "للتحديثات والرسائل السريعة.",
     href: "https://t.me/panda_hub7",
   },
-  {
-    title: "WhatsApp",
-    icon: `${basePath}/images/platforms/whatsapp.png`,
-    desc: "للمشاريع والاستفسارات السريعة.",
-    href: "https://wa.me/201096897507",
-  },
+
   {
     title: "Facebook",
     icon: `${basePath}/images/platforms/facebook.png`,
     desc: "للاطلاع على آخر التحديثات والمنشورات.",
     href: "https://www.facebook.com/groups/panda.hub",
   },
+
   {
     title: "YouTube",
     icon: `${basePath}/images/platforms/youtube.png`,
     desc: "قناة الفيديوهات والشرح التفاعلي.",
     href: "https://www.youtube.com/@PG-panda",
+  },
+
+  {
+    title: "WhatsApp",
+    icon: `${basePath}/images/platforms/whatsapp.png`,
+    desc: "لمعرفة اخر التحديثات والاخبار",
+    href: "https://whatsapp.com/channel/0029Vb8VbcQHQbRvoGErAu07",
   },
 ];
 
@@ -48,19 +68,40 @@ export default function Contact() {
             دي مباشرة.
           </p>
 
-          <div className="contact-grid">
-            {CONTACTS.map((item) => (
-              <div className="contact-card" key={item.title}>
-                <div className="contact-badge" aria-hidden="true">
-                  <img className="contact-icon" src={item.icon} alt={item.title} />
+          <div className="contact-section">
+            <h3 className="contact-section-title">دعم فني</h3>
+            <div className="contact-grid">
+              {SUPPORT_CHANNELS.map((item) => (
+                <div className="contact-card" key={item.title}>
+                  <div className="contact-badge" aria-hidden="true">
+                    <img className="contact-icon" src={item.icon} alt={item.title} />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                  <a className="contact-link" href={item.href} target="_blank" rel="noreferrer">
+                    افتح القناة
+                  </a>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-                <a className="contact-link" href={item.href} target="_blank" rel="noreferrer">
-                  افتح القناة
-                </a>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          <div className="contact-section">
+            <h3 className="contact-section-title">صفحاتنا</h3>
+            <div className="contact-grid">
+              {OUR_PAGES.map((item) => (
+                <div className="contact-card" key={item.title}>
+                  <div className="contact-badge" aria-hidden="true">
+                    <img className="contact-icon" src={item.icon} alt={item.title} />
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                  <a className="contact-link" href={item.href} target="_blank" rel="noreferrer">
+                    افتح الصفحة
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
