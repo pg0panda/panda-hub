@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -23,6 +24,42 @@ const SUPPORT_CHANNELS = [
     icon: `${basePath}/images/platforms/facebook.png`,
     desc: "للتواصل عبر رسائل الصفحة.",
     href: "https://www.facebook.com/profile.php?id=61592268906943",
+  },
+];
+
+const CONTACT_INFO = [
+  {
+    title: "رقم الهاتف",
+    desc: "+20 1096897507",
+    href: "tel:+201096897507",
+    linkText: "اتصل الآن",
+  },
+  {
+    title: "البريد الإلكتروني",
+    desc: "mohamednasr9040@gmail.com",
+    href: "mailto:mohamednasr9040@gmail.com",
+    linkText: "أرسل رسالة",
+  },
+  {
+    title: "العنوان",
+    desc: "محافظة القليوبية، مصر",
+    href: "#",
+    linkText: "",
+  },
+];
+
+const POLICY_PAGES = [
+  {
+    title: "الشروط والأحكام",
+    desc: "اقرأ الشروط والأحكام الكاملة لاستخدام الخدمات والتعامل مع PANDA Hub.",
+    href: "/terms",
+    linkText: "عرض الشروط",
+  },
+  {
+    title: "سياسة استرداد الأموال",
+    desc: "تعرف على شروط وأسلوب استرداد الأموال المتبع عند الطلب.",
+    href: "/refund-policy",
+    linkText: "عرض السياسة",
   },
 ];
 
@@ -69,6 +106,23 @@ export default function Contact() {
           </p>
 
           <div className="contact-section">
+            <h3 className="contact-section-title">بيانات التواصل المباشر</h3>
+            <div className="contact-grid">
+              {CONTACT_INFO.map((item) => (
+                <div className="contact-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                  {item.href !== "#" ? (
+                    <a className="contact-link" href={item.href} target="_blank" rel="noreferrer">
+                      {item.linkText}
+                    </a>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="contact-section">
             <h3 className="contact-section-title">دعم فني</h3>
             <div className="contact-grid">
               {SUPPORT_CHANNELS.map((item) => (
@@ -99,6 +153,21 @@ export default function Contact() {
                   <a className="contact-link" href={item.href} target="_blank" rel="noreferrer">
                     افتح الصفحة
                   </a>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="contact-section">
+            <h3 className="contact-section-title">الشروط والأحكام وسياسة الاسترداد</h3>
+            <div className="contact-grid">
+              {POLICY_PAGES.map((item) => (
+                <div className="contact-card" key={item.title}>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
+                  <Link className="contact-link" href={item.href}>
+                    {item.linkText}
+                  </Link>
                 </div>
               ))}
             </div>

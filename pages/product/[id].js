@@ -5,6 +5,8 @@ import Footer from "../../components/Footer";
 import { getAllProducts, getProductById } from "../../lib/products";
 
 export default function ProductPage({ product }) {
+  const [copiedCode, setCopiedCode] = useState("");
+
   if (!product) {
     return (
       <>
@@ -47,6 +49,16 @@ export default function ProductPage({ product }) {
   const openImage = (image) => {
     setSelectedImage(image);
     setIsModalOpen(true);
+  };
+
+  const handleCopyCode = async (code) => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopiedCode(code);
+      window.setTimeout(() => setCopiedCode(""), 1600);
+    } catch (error) {
+      console.error("Failed to copy code", error);
+    }
   };
 
   const showPreviousImage = () => {
@@ -111,6 +123,42 @@ export default function ProductPage({ product }) {
               {product.version} · {product.fileType}
               {product.sizeMb ? ` · ${product.sizeMb}MB` : ""}
             </div>
+            <div className="payment-note">
+              الدفع يتم داخل البرنامج نفسه بعد التثبيت.
+            </div>
+
+            {product.packages && product.packages.length > 0 && (
+              <div className="product-packages">
+                <h2 className="section-sub">الباقات المتاحة</h2>
+                <div className="package-grid">
+                  {product.packages.map((pkg) => (
+                    <div className="package-card" key={pkg.title}>
+                      <h3>{pkg.title}</h3>
+                      <strong>{pkg.price}</strong>
+                      <p>{pkg.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="product-packages">
+              <h2 className="section-sub">اكوّد مجانية</h2>
+              <div className="package-card">
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center" }}>
+                  <h3 style={{ margin: 0 }}>Panda|Free-3d-L-50</h3>
+                  <button
+                    type="button"
+                    className="copy-code-btn"
+                    onClick={() => handleCopyCode("Panda|Free-3d-L-50")}
+                  >
+                    {copiedCode === "Panda|Free-3d-L-50" ? "تم النسخ" : "نسخ"}
+                  </button>
+                </div>
+                <p>استخدم هذا الكود للحصول على النسخة المجانية أو العرض المخصص.</p>
+              </div>
+            </div>
+
             <a
               href={product.downloadUrl}
               target="_blank"

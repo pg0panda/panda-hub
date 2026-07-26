@@ -12,6 +12,8 @@ export default function Navbar() {
           <Link href="/">المنتجات</Link>
           <Link href="/about">عن بيئة العمل</Link>
           <Link href="/contact">تواصل معنا</Link>
+          <Link href="/terms">الشروط والأحكام</Link>
+          <Link href="/refund-policy">سياسة استرجاع الأموال</Link>
         </nav>
       </div>
     </header>
