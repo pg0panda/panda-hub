@@ -8,7 +8,7 @@ const SUPPORT_CHANNELS = [
     title: "Discord",
     icon: `${basePath}/images/platforms/discord.png`,
     desc: "قم بفتح تذكرة للحصول علي مساعدة.",
-    href: "https://canary.discord.com/channels/1411164706885865525/1420494962553913454",
+    href: "https://discord.com/channels/1530264106878111874/1530351017261010997",
   },
   
   {
