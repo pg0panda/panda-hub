@@ -21,6 +21,10 @@ export default function Home({ products }) {
         <div className="container">
           <div className="section-title">كل المنتجات</div>
           <div className="section-sub">{products.length} منتج متاح دلوقتي</div>
+          <div className="support-banner">
+            <span>💡</span>
+            <p>جميع منتجاتنا تأتي مع دعم فني متميز لمساعدتك في كل خطوة.</p>
+          </div>
           <div className="grid">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />

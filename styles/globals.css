@@ -138,6 +138,27 @@ textarea {
   margin-bottom: 40px;
 }
 
+.support-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(127, 176, 105, 0.12);
+  border: 1px solid rgba(127, 176, 105, 0.22);
+  margin-bottom: 24px;
+}
+
+.support-banner span {
+  font-size: 1.1rem;
+}
+
+.support-banner p {
+  margin: 0;
+  color: var(--text);
+  font-weight: 600;
+}
+
 /* ===== Product grid ===== */
 .grid {
   display: grid;
