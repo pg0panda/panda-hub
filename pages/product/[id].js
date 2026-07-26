@@ -143,7 +143,7 @@ export default function ProductPage({ product }) {
             )}
 
             <div className="product-packages">
-              <h2 className="section-sub">اكوّد مجانية</h2>
+              <h2 className="section-sub">اكواد مجانية</h2>
               <div className="package-card">
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center" }}>
                   <h3 style={{ margin: 0 }}>Panda|Free-3d-L-50</h3>
