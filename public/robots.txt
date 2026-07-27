@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pg0panda.github.io/panda-hub/sitemap.xml

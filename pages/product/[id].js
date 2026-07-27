@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Seo from "../../components/Seo";
 import { getAllProducts, getProductById } from "../../lib/products";
 
 export default function ProductPage({ product }) {
@@ -10,6 +11,11 @@ export default function ProductPage({ product }) {
   if (!product) {
     return (
       <>
+        <Seo
+          title="المنتج غير موجود"
+          description="المنتج المطلوب غير متاح الآن. تصفح قائمة المنتجات الرقمية المتاحة على PANDA Hub."
+          canonicalPath="/"
+        />
         <Navbar />
         <div className="container section">المنتج غير موجود.</div>
         <Footer />
@@ -75,6 +81,12 @@ export default function ProductPage({ product }) {
 
   return (
     <>
+      <Seo
+        title={product.name}
+        description={product.tagline || product.description}
+        canonicalPath={`/product/${product.id}`}
+        image={product.image || galleryImages[0]}
+      />
       <Navbar />
       <div className="container">
         <div className="product-detail">

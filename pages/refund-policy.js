@@ -1,9 +1,15 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 export default function RefundPolicy() {
   return (
     <>
+      <Seo
+        title="سياسة الاسترداد"
+        description="اعرف الشروط والإجراءات الخاصة باسترداد الأموال عند شراء منتجات PANDA Hub الرقمية."
+        canonicalPath="/refund-policy"
+      />
       <Navbar />
       <section className="section">
         <div className="container">

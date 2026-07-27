@@ -1,11 +1,17 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
+import Seo from "../components/Seo";
 import { getAllProducts } from "../lib/products";
 
 export default function Home({ products }) {
   return (
     <>
+      <Seo
+        title="منتجات رقمية لنظام ويندوز"
+        description="اكتشف منتجات PANDA Hub الرقمية لنظام ويندوز مع تحميل مباشر، أوصاف واضحة، ودعم فني مميز."
+        canonicalPath="/"
+      />
       <Navbar />
       <section className="hero">
         <div className="container">

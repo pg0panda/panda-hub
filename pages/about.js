@@ -1,5 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 const FEATURES = [
   {
@@ -16,6 +17,11 @@ const FEATURES = [
 export default function About() {
   return (
     <>
+      <Seo
+        title="عن PANDA Hub"
+        description="تعرف على فكرة PANDA Hub، أهدافه، والمنتجات الرقمية التي يقدمها لعملائه بشكل مباشر وسهل."
+        canonicalPath="/about"
+      />
       <Navbar />
       <section className="section">
         <div className="container">

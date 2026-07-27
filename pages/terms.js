@@ -1,9 +1,15 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 export default function Terms() {
   return (
     <>
+      <Seo
+        title="الشروط والأحكام"
+        description="اقرأ شروط استخدام PANDA Hub والمنتجات الرقمية قبل الشراء أو استخدام الخدمات."
+        canonicalPath="/terms"
+      />
       <Navbar />
       <section className="section">
         <div className="container">

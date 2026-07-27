@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
 
 const basePath = process.env.NODE_ENV === "production" ? "/panda-hub" : "";
 
@@ -96,6 +97,11 @@ const OUR_PAGES = [
 export default function Contact() {
   return (
     <>
+      <Seo
+        title="تواصل معنا"
+        description="تواصل مع PANDA Hub عبر الهاتف أو البريد أو القنوات الرسمية للحصول على الدعم أو آخر التحديثات."
+        canonicalPath="/contact"
+      />
       <Navbar />
       <section className="section">
         <div className="container">
