@@ -8,20 +8,20 @@ export default function Home({ products }) {
   return (
     <>
       <Seo
-        title="منتجات رقمية لنظام ويندوز"
-        description="اكتشف منتجات PANDA Hub الرقمية لنظام ويندوز مع تحميل مباشر، أوصاف واضحة، ودعم فني مميز."
-        canonicalPath="/"
-      />
+  title="باندا هاب | Panda Hub - منتجات رقمية لنظام ويندوز"
+  description="منصة باندا هاب (Panda Hub) تقدم منتجات رقمية لنظام ويندوز مع تحميل مباشر، أوصاف واضحة، ودعم فني مميز."
+  canonicalPath="/"
+/>
       <Navbar />
       <section className="hero">
-        <div className="container">
-          <div className="hero-eyebrow">Panda-List-Products</div>
-          <h1> منتجات رقمية لنظام ويندوز</h1>
-          <p>
-            منتجات رقمية مصممة لنظام ويندوز، لتسهيل عملية الصيانة واصلاح النظام والتحسين وزيادة الإنتاجية والاداء.
-          </p>
-        </div>
-      </section>
+  <div className="container">
+    <div className="hero-eyebrow">Panda Hub</div>
+    <h1>باندا هاب - منتجات رقمية لنظام ويندوز</h1>
+    <p>
+      منصة باندا هاب توفر منتجات رقمية مصممة لنظام ويندوز، لتسهيل عملية الصيانة وإصلاح النظام والتحسين وزيادة الإنتاجية والأداء.
+    </p>
+  </div>
+</section>
 
       <section className="section">
         <div className="container">
