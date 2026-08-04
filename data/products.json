@@ -1,24 +1,28 @@
 [
   {
     "id": "1",
-    "name": "PANDA Toolbox",
+    "name": "Panda-Toolbox",
     "tagline": "مجموعة أدوات وبرامج لإصلاح وتحسين أداء ويندوز",
     "description": "برنامج سطح مكتب يحتوي علي جميع تعريفات نظام الويندوز\nيحتوي علي مجموعة برامج بها اشتراك مدي الحياة\nيحتوي علي مجموعة ادوات لاصلاح النظام وحل جميع مشاكله وتسريع اداؤه\nيحتوي علي ادوات تفعيل الويندوز ومايكروسفت والتحكم بتحديثات وحماية ويندوز",
     "image": "/images/panda_ico.png",
     "images": [
-      "/images/WhatsApp Image 2026-06-08 at 12.24.51 AM.jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM.jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM (1).jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.52 AM (2).jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM.jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (1).jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (2).jpeg",
-      "/images/WhatsApp Image 2026-06-08 at 12.24.53 AM (3).jpeg"
+      "/images/1.png",
+      "/images/2.png",
+      "/images/3.png",
+      "/images/4.png",
+      "/images/5.png",
+      "/images/6.png",
+      "/images/7.png",
+      "/images/8.png",
+      "/images/9.png",
+      "/images/10.png",
+      "/images/11.png"
+
     ],
-    "downloadUrl": "https://github.com/pg0panda/panda-app/releases/download/v5.3.2/Panda-Toolbox-Setup-5.3.2.exe",
-    "version": "v5.3.2",
+    "downloadUrl": "https://github.com/pg0panda/panda-app/releases/download/v5.3.3/Panda-Toolbox-Setup-5.3.3.exe",
+    "version": "v5.3.3",
     "fileType": "EXE",
-    "sizeMb": 207,
+    "sizeMb": 165,
     "packages": [
       {
         "title": "شهر",

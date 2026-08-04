@@ -7,8 +7,8 @@ export default function Document() {
   return (
     <Html lang="ar" dir="rtl">
       <Head>
-        <title>Panda Hub</title>
-        <meta name="description" content="منتجات رقمية لنظام ويندوز" />
+        <meta name="description" content="PANDA Hub provides digital products for Windows with ready downloads, clear descriptions, and technical support. | باندا هاب يقدم منتجات رقمية لنظام ويندوز مع تحميل مباشر ودعم فني." />
+        <meta httpEquiv="content-language" content="ar,en" />
         <link rel="icon" href={faviconPath} type="image/x-icon" />
         <link rel="shortcut icon" href={faviconPath} type="image/x-icon" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
