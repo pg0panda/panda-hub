@@ -5,6 +5,27 @@ const defaultTitle = "PANDA Hub | Digital Products for Windows";
 const defaultDescription =
   "PANDA Hub provides ready-to-download digital products for Windows, including utilities, repair tools, and technical support. | باندا هاب يقدم منتجات رقمية لنظام ويندوز مع أدوات صيانة ودعم فني.";
 const defaultImage = "/images/panda_ico.png";
+const defaultStructuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pg0panda.github.io/panda-hub/#organization",
+      "name": "PANDA Hub",
+      "url": "https://pg0panda.github.io/panda-hub/",
+      "logo": "https://pg0panda.github.io/panda-hub/images/panda_ico.png",
+      "description": "PANDA Hub provides digital products and Windows utilities with direct downloads and technical support."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pg0panda.github.io/panda-hub/#website",
+      "url": "https://pg0panda.github.io/panda-hub/",
+      "name": "PANDA Hub",
+      "inLanguage": ["ar", "en"],
+      "description": "Digital products for Windows and useful utilities from PANDA Hub."
+    }
+  ]
+};
 
 export default function Seo({
   title,
@@ -54,6 +75,10 @@ export default function Seo({
       <meta name="twitter:image" content={resolvedImage} />
       <meta name="twitter:image:alt" content={resolvedTitle} />
       <meta name="twitter:site" content="@pg0panda" />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(defaultStructuredData) }}
+      />
     </Head>
   );
 }
