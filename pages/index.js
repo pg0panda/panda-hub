@@ -21,7 +21,7 @@ export default function Home({ products }) {
       منصة باندا هاب توفر منتجات رقمية مصممة لنظام ويندوز، لتسهيل عملية الصيانة وإصلاح النظام والتحسين وزيادة الإنتاجية والأداء.
     </p>
     <img
-      src="/images/panda_ico.png"
+      src="/images/LOGO.jpeg"
       alt="PANDA Hub - digital products and Windows tools"
       style={{ maxWidth: 220, marginTop: "1.25rem", borderRadius: 16 }}
     />
