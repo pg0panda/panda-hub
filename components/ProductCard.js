@@ -1,6 +1,11 @@
 import Link from "next/link";
+import { useSiteSettings } from "./SiteSettingsContext";
 
 export default function ProductCard({ product }) {
+  const { language } = useSiteSettings();
+  const detailsLabel = language === "en" ? "Details" : "التفاصيل";
+  const downloadLabel = language === "en" ? "Download" : "تحميل";
+
   return (
     <div className="card">
       <div className="card-image">
@@ -15,7 +20,7 @@ export default function ProductCard({ product }) {
         </div>
         <div className="card-actions">
           <Link href={`/product/${product.id}`} className="btn btn-secondary">
-            التفاصيل
+            {detailsLabel}
           </Link>
           <a
             href={product.downloadUrl}
@@ -23,7 +28,7 @@ export default function ProductCard({ product }) {
             rel="noopener noreferrer"
             className="btn btn-primary"
           >
-            تحميل
+            {downloadLabel}
           </a>
         </div>
       </div>

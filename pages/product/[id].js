@@ -3,21 +3,25 @@ import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import Seo from "../../components/Seo";
+import { useSiteSettings } from "../../components/SiteSettingsContext";
 import { getAllProducts, getProductById } from "../../lib/products";
 
 export default function ProductPage({ product }) {
+  const { language } = useSiteSettings();
+  const isEnglish = language === "en";
   const [copiedCode, setCopiedCode] = useState("");
 
   if (!product) {
     return (
       <>
         <Seo
-          title="المنتج غير موجود"
-          description="المنتج المطلوب غير متاح الآن. تصفح قائمة المنتجات الرقمية المتاحة على PANDA Hub."
+          title={isEnglish ? "Product not found" : "المنتج غير موجود"}
+          description={isEnglish ? "The requested product is not available right now. Browse the available digital products on PANDA Hub." : "المنتج المطلوب غير متاح الآن. تصفح قائمة المنتجات الرقمية المتاحة على PANDA Hub."}
           canonicalPath="/"
+          language={language}
         />
         <Navbar />
-        <div className="container section">المنتج غير موجود.</div>
+        <div className="container section">{isEnglish ? "Product not found." : "المنتج غير موجود."}</div>
         <Footer />
       </>
     );
@@ -79,6 +83,17 @@ export default function ProductPage({ product }) {
     setSelectedImage(galleryImages[nextIndex]);
   };
 
+  const labels = {
+    back: isEnglish ? "← All products" : "← كل المنتجات",
+    payment: isEnglish ? "Payment is completed inside the app after installation." : "الدفع يتم داخل البرنامج نفسه بعد التثبيت.",
+    packages: isEnglish ? "Available plans" : "الباقات المتاحة",
+    freeCodes: isEnglish ? "Free codes" : "اكواد مجانية",
+    copy: isEnglish ? "Copy" : "نسخ",
+    copied: isEnglish ? "Copied" : "تم النسخ",
+    download: isEnglish ? "Download product" : "تحميل المنتج",
+    useCode: isEnglish ? "Use this code to get the free version or a special offer." : "استخدم هذا الكود للحصول على النسخة المجانية أو العرض المخصص.",
+  };
+
   return (
     <>
       <Seo
@@ -86,6 +101,7 @@ export default function ProductPage({ product }) {
         description={product.tagline || product.description}
         canonicalPath={`/product/${product.id}`}
         image={product.image || galleryImages[0]}
+        language={language}
       />
       <Navbar />
       <div className="container">
@@ -94,10 +110,10 @@ export default function ProductPage({ product }) {
             <button
               type="button"
               className="product-main-image"
-              aria-label={`فتح الصورة الرئيسية للمنتج ${product.name}`}
+              aria-label={isEnglish ? `Open the main image for ${product.name}` : `فتح الصورة الرئيسية للمنتج ${product.name}`}
               onClick={() => openImage(selectedImage)}
             >
-              <img src={selectedImage} alt={`${product.name} الرئيسية`} />
+              <img src={selectedImage} alt={isEnglish ? `${product.name} main image` : `${product.name} الرئيسية`} />
             </button>
 
             {galleryImages.length > 0 && (
@@ -111,9 +127,9 @@ export default function ProductPage({ product }) {
                       setSelectedImage(image);
                       setIsModalOpen(false);
                     }}
-                    aria-label={`عرض صورة ${index + 1} للمنتج ${product.name}`}
+                    aria-label={isEnglish ? `View image ${index + 1} of ${product.name}` : `عرض صورة ${index + 1} للمنتج ${product.name}`}
                   >
-                    <img src={image} alt={`${product.name} ${index + 1}`} />
+                    <img src={image} alt={isEnglish ? `${product.name} ${index + 1}` : `${product.name} ${index + 1}`} />
                   </button>
                 ))}
               </div>
@@ -122,7 +138,7 @@ export default function ProductPage({ product }) {
 
           <div className="product-text">
             <Link href="/" className="back-link">
-              ← كل المنتجات
+              {labels.back}
             </Link>
             <h1 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", margin: "0 0 12px" }}>
               {product.name}
@@ -135,13 +151,11 @@ export default function ProductPage({ product }) {
               {product.version} · {product.fileType}
               {product.sizeMb ? ` · ${product.sizeMb}MB` : ""}
             </div>
-            <div className="payment-note">
-              الدفع يتم داخل البرنامج نفسه بعد التثبيت.
-            </div>
+            <div className="payment-note">{labels.payment}</div>
 
             {product.packages && product.packages.length > 0 && (
               <div className="product-packages">
-                <h2 className="section-sub">الباقات المتاحة</h2>
+                <h2 className="section-sub">{labels.packages}</h2>
                 <div className="package-grid">
                   {product.packages.map((pkg) => (
                     <div className="package-card" key={pkg.title}>
@@ -155,7 +169,7 @@ export default function ProductPage({ product }) {
             )}
 
             <div className="product-packages">
-              <h2 className="section-sub">اكواد مجانية</h2>
+              <h2 className="section-sub">{labels.freeCodes}</h2>
               <div className="package-card">
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 12, alignItems: "center" }}>
                   <h3 style={{ margin: 0 }}>Panda|Free-3d-L-50</h3>
@@ -164,10 +178,10 @@ export default function ProductPage({ product }) {
                     className="copy-code-btn"
                     onClick={() => handleCopyCode("Panda|Free-3d-L-50")}
                   >
-                    {copiedCode === "Panda|Free-3d-L-50" ? "تم النسخ" : "نسخ"}
+                    {copiedCode === "Panda|Free-3d-L-50" ? labels.copied : labels.copy}
                   </button>
                 </div>
-                <p>استخدم هذا الكود للحصول على النسخة المجانية أو العرض المخصص.</p>
+                <p>{labels.useCode}</p>
               </div>
             </div>
 
@@ -177,7 +191,7 @@ export default function ProductPage({ product }) {
               rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              تحميل المنتج
+              {labels.download}
             </a>
           </div>
         </div>
@@ -192,7 +206,7 @@ export default function ProductPage({ product }) {
             <button type="button" className="modal-arrow left" onClick={showPreviousImage}>
               ‹
             </button>
-            <img src={selectedImage} alt={`${product.name} المعروضة`} className="modal-image" />
+            <img src={selectedImage} alt={isEnglish ? `${product.name} preview` : `${product.name} المعروضة`} className="modal-image" />
             <button type="button" className="modal-arrow right" onClick={showNextImage}>
               ›
             </button>
